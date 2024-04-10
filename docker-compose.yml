@@ -1,18 +1,12 @@
-version: '3.8'
 services:
   mongodb:
-    image: mongo:latest
+    image: mongodb/mongodb-community-server:latest
     container_name: mongodb
-    restart: always
     volumes:
       - ./src:/project
-      - /data:/data
-      - /data/protein/MongoDB/data:/data/db
-      - /data/protein/MongoDB/logs:/data/logs
-      - /data/protein/MongoDB/config:/data/configdb
+      - /data/protein/CAMEO/mongodb:/data/db
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin123
+      - MONGODB_INITDB_ROOT_USERNAME=admin
+      - MONGODB_INITDB_ROOT_PASSWORD=admin123
     ports:
       - 27017:27017
-    # command: mongod --config /etc/mongo/mongod.conf

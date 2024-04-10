@@ -10,14 +10,15 @@ cursor.execute('SELECT * FROM state_tbl')
 rows = cursor.fetchall()
 
 # 连接MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://10.0.0.12:27017/', username='admin', password='admin123')
 
-db = client['casp15']
-collection = db['cameo']
+db = client.cameo
+collection = db.cameo_2024
 
 # 将数据导入MongoDB
+
 for row in rows:
-    print("Name: ", row[1])
+    # print("Name: ", row[1])
     data = {
         'hash_id': row[0],
         'name': row[1],

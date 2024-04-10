@@ -10,12 +10,12 @@ cursor.execute('SELECT * FROM state_tbl')
 rows = cursor.fetchall()
 
 # 连接MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://10.0.0.12:27017/')
 
-db = client['casp15']
-collection = db['cameo']
+db = db = client.cameo_2024
+jobs = db.jobs
 
-test_find_all=collection.find()
+test_find_all=jobs.find()
 
 structure ={}
 for test_find_one in test_find_all:
